@@ -33,7 +33,7 @@ def calculate_total(loc):
     print(tabulate(result.sort_values(by=['value'],ascending=False), headers='keys', tablefmt='fancy_grid'))
 
     print('Overall Value:')
-    print("£",np.round(result.value.sum(),-1))
+    print("£",int(np.round(result.value.sum(),0)))
 
 
 
