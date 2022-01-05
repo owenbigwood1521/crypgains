@@ -1,4 +1,5 @@
-from crypgains.prices import generate_price_history
+from crypgains.prices import update_price_histories, update_price_current
 
 if __name__ == '__main__':
-    generate_price_history.run()
+    update_price_histories.run()
+    update_price_current.run()

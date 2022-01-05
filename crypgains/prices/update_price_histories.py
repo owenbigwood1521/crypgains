@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 from datetime import date, timedelta
 import time
-from crypgains.prices.get_price_history import get_price_history
+from crypgains.prices.price_updater import get_price_history
 from crypgains.utils.write_data import write_data
 from crypgains.utils.yaml_loader import yaml_loader
 import yaml
@@ -24,8 +24,11 @@ def run():
 
     cryptos = list(portfolio.keys())
 
+    print("Portfolio:")
     for crypto in cryptos:
         print("Crypto found: ",crypto)
+
+    print("Running Historical price updater...")
 
     dfs = []
 
@@ -33,5 +36,11 @@ def run():
         df = get_price_history(crypto,sunixtime,eunixtime)
         dfs.append(df)
 
-    write_data(pd.concat(dfs),'crypgains/data/historical_prices')
+    comb = pd.concat(dfs)
+    
+    print(f"Number of months found: {np.round((len(comb) / len(portfolio))/12,1)}")
+    print(f"Minimum Date found: {comb.dt.min()}")
+    print(f"Maximum Date found: {comb.dt.max()}")
 
+    write_data(comb,'crypgains/data/historical_prices')
+    print("Historical price updater complete.")
