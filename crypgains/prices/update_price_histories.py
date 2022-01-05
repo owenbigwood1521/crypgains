@@ -24,9 +24,9 @@ def run():
 
     cryptos = list(portfolio.keys())
 
-    print("Portfolio:")
+    print("---Portfolio---")
     for crypto in cryptos:
-        print("Crypto found: ",crypto)
+        print(crypto, " - token volume: ", portfolio[crypto])
 
     print("Running Historical price updater...")
 
@@ -42,5 +42,5 @@ def run():
     print(f"Minimum Date found: {comb.dt.min()}")
     print(f"Maximum Date found: {comb.dt.max()}")
 
-    write_data(comb,'crypgains/data/historical_prices')
+    write_data(comb,'crypgains/data/prices_historical')
     print("Historical price updater complete.")

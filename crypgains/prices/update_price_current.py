@@ -17,7 +17,7 @@ def run():
     
     df = get_price_current('crypgains/resources/portfolio.yaml')
 
-    write_data(df,'crypgains/data/current_prices')
+    write_data(df,'crypgains/data/prices_current')
 
     print("Current price updater complete.")
 

@@ -59,12 +59,12 @@ def get_price_current(portfolio):
 
     #Grab prices from API
     price = cg.get_price(ids=cryptos,vs_currencies='gbp')
-    
+  
     #Turn into pandas df object
-    df = pd.DataFrame.from_dict(price)
+    df = pd.DataFrame.from_dict(price, orient='index')
 
-    df = df.transpose()
+    df.reset_index(level=0, inplace=True)
 
-    df.columns = ['price_gbp']
+    df.columns = ['crypto','price_gbp']
 
     return df
