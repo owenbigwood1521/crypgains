@@ -1,2 +1,2 @@
-# crypto-gains
+# crypgains
 Calculating Crypto gains
