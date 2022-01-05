@@ -133,3 +133,6 @@ cgenv/
 
 # data output
 *.csv
+
+coinbase.json
+bitforex.json
