@@ -130,3 +130,6 @@ dmypy.json
 
 # virtualenv
 cgenv/
+
+# data output
+*.csv
