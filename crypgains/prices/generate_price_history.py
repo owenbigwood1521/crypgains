@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 from datetime import date, timedelta
 import time
-from crypgains.utils.get_price_history import get_price_history
+from crypgains.prices.get_price_history import get_price_history
 from crypgains.utils.write_data import write_data
 from crypgains.utils.yaml_loader import yaml_loader
 import yaml
@@ -33,5 +33,5 @@ def run():
         df = get_price_history(crypto,sunixtime,eunixtime)
         dfs.append(df)
 
-    write_data(pd.concat(dfs))
+    write_data(pd.concat(dfs),'crypgains/data/historical_prices')
 
